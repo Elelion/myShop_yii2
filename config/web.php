@@ -13,8 +13,15 @@ $config = [
     ],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            /**
+			 * NOTE:
+			 * insert a secret key in the following
+			 * (if it is empty) - this is required by cookie validation
+			 */
+            'cookieValidationKey' => 'sd*#Dsdj8sad9s8ad8S',
+
+            // NOTE: include Human-friendly URL
+            'baseUrl' => $baseUrl,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -43,14 +50,15 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+
+        // NOTE: include Human-friendly URL
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+			'showScriptName' => false,
+			'rules' => [
+                '' => 'site/index'
+			]
         ],
-        */
     ],
     'params' => $params,
 ];
