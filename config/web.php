@@ -7,6 +7,9 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+
+    // NOTE: setting the language
+    'language' => 'ru-RU',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -24,7 +27,7 @@ $config = [
             'cookieValidationKey' => 'sd*#Dsdj8sad9s8ad8S',
 
             // NOTE: include Human-friendly URL
-            'baseUrl' => $baseUrl,
+            // 'baseUrl' => $baseUrl,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
