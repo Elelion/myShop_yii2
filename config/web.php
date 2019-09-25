@@ -11,6 +11,9 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+
+    // NOTE: setting the language
+    // 'language' => 'ru-RU',
     'components' => [
         'request' => [
             /**
