@@ -1,0 +1,36 @@
+﻿-- NOTE: table -> main_service
+INSERT INTO category (parent_id, name, keywords, description) VALUES
+	("0", "Sportswear", "", ""),
+	("0", "Mens", "", ""),
+	("0", "Womens", "", ""),
+	("1", "Nike", "", ""),
+	("1", "Under Armour", "", ""),
+	("1", "Adidas", "", ""),
+	("1", "Puma", "", ""),
+	("1", "ASICS", "", ""),
+	("2", "Fendi", "", ""),
+	("2", "Guess", "", ""),
+	("2", "Valentino", "", ""),
+	("2", "Dior", "", ""),
+	("2", "Versace", "", ""),
+	("2", "Armani", "", ""),
+	("2", "Prada", "", ""),
+	("2", "Dolce and Gabbana", "", ""),
+	("2", "Chanel", "", ""),
+	("2", "Gucci", "", ""),
+	("3", "Fendi", "", ""),
+	("3", "Guess", "", ""),
+	("3", "Valentino", "", ""),
+	("3", "Dior", "", ""),
+	("3", "Versace", "", ""),
+	("0", "Kids", "", ""),
+	("0", "Fashion", "", ""),
+	("0", "Household", "", ""),
+	("0", "Interiros", "", ""),
+	("0", "Clothing", "", ""),
+	("0", "Bags", "Сумки ключевики", "Сумки описание"),
+	("0", "Shoes", "", "")
+
+-- NOTE: table -> articles
+-- INSERT INTO articles (date_create, time_create, image_file,
+-- 	title, miniDescription, fullDescription) VALUES
