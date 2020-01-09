@@ -4,22 +4,24 @@ use yii\base\Widget;
 
 class MenuWidget extends Widget
 {
-  public $tpl;
+    public $template;
 
-  public function init()
-  {
-    // parent::init();
+    // NOTE: default auto initialized method
+    public function init()
+    {
+        // parent::init();
 
-    // NOTE: if \app\components\MenuWidget::widget()
-    if ($this->tpl === null) {
-      $this->tpl = 'menu';
+        // NOTE: if \app\components\MenuWidget::widget()
+        if ($this->template === null) {
+            $this->template = 'menu';
+        }
+
+        $this->template .= '.php';
     }
 
-    $this->tpl .= '.php';
-  }
-
-  public function run()
-  {
-    return $this->tpl;
-  }
+    // NOTE: default auto-run method
+    public function run()
+    {
+        return $this->template;
+    }
 }

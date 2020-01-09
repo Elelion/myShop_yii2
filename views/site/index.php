@@ -77,7 +77,8 @@ $this->title = 'My Yii Application';
 						<h2>Category</h2>
 
 						<!-- NOTE: display our widget -->
-						<?= \app\components\MenuWidget::widget(['tpl' => 'menu']) ?>
+            <!-- \app\components\MenuWidget::widget(); -->
+						<?= \app\components\MenuWidget::widget(['template' => 'menu']); ?>
 
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">

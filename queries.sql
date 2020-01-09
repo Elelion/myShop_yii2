@@ -1,5 +1,4 @@
-﻿-- NOTE: table -> main_service
-INSERT INTO category (parent_id, name, keywords, description) VALUES
+﻿INSERT INTO category (parent_id, name, keywords, description) VALUES
 	("0", "Sportswear", "", ""),
 	("0", "Mens", "", ""),
 	("0", "Womens", "", ""),
@@ -31,6 +30,19 @@ INSERT INTO category (parent_id, name, keywords, description) VALUES
 	("0", "Bags", "Сумки ключевики", "Сумки описание"),
 	("0", "Shoes", "", "")
 
--- NOTE: table -> articles
--- INSERT INTO articles (date_create, time_create, image_file,
--- 	title, miniDescription, fullDescription) VALUES
+INSERT INTO product (
+    category_id,
+    name,
+    content,
+    price,
+    img,
+    hit,
+    new,
+    sale)
+    VALUES
+        ("4", "Джинсы Garcia 244/32/856 28-32 р Серо-синие", "Великолепные джинсы", "10", "product1.jpg", "0", "0", "0"),
+        ("4", "Джинсы MR520 MR 227 20002 0115 29-34 р Синие", "Амбициозные джинсы", "56", "product2.jpg", "1", "0", "0"),
+        ("9", "Блуза Tom Tailor TT 20312490071", "Испанский ночной бренд", "20", "product3.jpg", "1", "1", "0"),
+        ("21", "Блуза Mango 53001245", "Ведущий бренд", "70", "product4.jpg", "1", "0", "1"),
+        ("25", "Блузка Kira Plastina 17-16-17456>", "Простые джинсы", "0", "product5.jpg", "1", "0", "0"),
+        ("26", "Кардиган Lavi's Icy", "Просто джинсики", "100", "product6.jpg", "1", "0", "0")
