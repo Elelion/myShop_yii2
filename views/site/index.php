@@ -1,9 +1,16 @@
 <?php
 
+use app\components\MenuWidget;
+
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
 ?>
+
+<ul class="catalog">
+  <?= MenuWidget::widget(['template' => 'menu']) ?>
+</ul>
+
 	<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
@@ -77,8 +84,8 @@ $this->title = 'My Yii Application';
 						<h2>Category</h2>
 
 						<!-- NOTE: display our widget -->
-            <!-- \app\components\MenuWidget::widget(); -->
-						<?= \app\components\MenuWidget::widget(['template' => 'menu']); ?>
+            <?php //echo MenuWidget::widget(); ?>
+						<?php //echo MenuWidget::widget(['template' => 'menu']); ?>
 
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
