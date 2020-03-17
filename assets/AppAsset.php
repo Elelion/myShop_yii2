@@ -37,7 +37,15 @@ class AppAsset extends AssetBundle
 		'js/jquery.scrollUp.min.js',
 		'js/price-range.js',
 		'js/jquery.prettyPhoto.js',
-		'js/main.js'
+
+        /*
+         * NOTE:
+         * jquery.accordion.js - remembers the state of the accordion
+         * */
+        'js/jquery.accordion.js',
+        'js/jquery.cookie.js',
+
+        'js/main.js',
 	];
 	public $depends = [
 		'yii\web\YiiAsset',
