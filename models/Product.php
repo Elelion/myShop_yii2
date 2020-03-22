@@ -11,7 +11,6 @@ class Product extends ActiveRecord
 
     public function getCategory()
     {
-        // NOTE: one product can have only one category
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 }
