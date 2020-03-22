@@ -31,7 +31,6 @@ phpunit.phar
 /config/params.php
 /config/test.php
 /config/test_db.php
-/config/web.php
 
 /controllers
 /mail
