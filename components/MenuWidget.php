@@ -2,6 +2,7 @@
 namespace app\components;
 use yii\base\Widget;
 use app\models\Category;
+use Yii;
 
 class MenuWidget extends Widget
 {
@@ -10,7 +11,6 @@ class MenuWidget extends Widget
     public $tree;
     public $menuHtml;
 
-    // NOTE: default auto initialized method
     public function init()
     {
         // parent::init();
@@ -23,19 +23,26 @@ class MenuWidget extends Widget
         $this->template .= '.php';
     }
 
-    // NOTE: default auto-run method
     public function run()
     {
-        // NOTE: ->indexBy('id) - to index an array, where 'id' key for index
+        // NOTE: getting data from the cache
+        $menu = Yii::$app->cache->get('menu');
+        if ($menu) {
+            return $menu;
+        }
+
+        /**/
+
+        // NOTE: creating menu
         $this->data = Category::find()->indexBy('id')->asArray()->all();
         $this->tree = $this->getTree();
         $this->menuHtml = $this->getMenuHtml($this->tree);
 
-        //debug($this->data);
+        // NOTE: getting data from the cache
+        Yii::$app->cache->set('menu', $this->menuHtml, 60);
         return $this->menuHtml;
     }
 
-    // NOTE: to build a tree from an array
     protected function getTree()
     {
         $tree = [];
@@ -49,7 +56,6 @@ class MenuWidget extends Widget
         return $tree;
     }
 
-    // NOTE: passes the tree parameter
     protected function getMenuHtml($tree)
     {
         $str = '';
@@ -60,12 +66,6 @@ class MenuWidget extends Widget
         return $str;
     }
 
-    /*
-     * NOTE:
-     * whatever the result is displayed on the screen we buffer it
-     * in the same way, we replace the classic render -> views
-     * .../components/views/...
-     * */
     protected function catToTemplate($category)
     {
         ob_start();
@@ -74,9 +74,20 @@ class MenuWidget extends Widget
     }
 }
 
+
 /*
-NOTE:
-Плагины качаем тут:
-https://plugins.jquery.com/cookie/ - jQuery Cookie
-https://github.com/Shakhlin/new_yii2/tree/master/web/js - all plugins
+NOTE: cache
+get - get the cache, and set-write the cache.
+
+set:
+• first parameter: key - the name of the cache that we will use to access it
+• second parameter - the data we want to record
+• third parameter: duration - life time in ms
+
+Creating a cached menu, because it rarely changes, and in order not to load
+the database with queries, we cache it
+
+cached data is stored here:
+runtime -> cache
+our files is here -> /me/...
 */
