@@ -15,8 +15,21 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
 
+    /*
+     * NOTE:
+     * look in: controllers -> CategoryController.php
+     * !!!rules in ... must be removed!!!
+     *
+     * if this doesn't work, see  urlManager -> rules
+     * '' => 'site/index',
+     * '' => 'category/index',
+     * */
+    //'defaultRoute' => 'main',
+    'defaultRoute' => 'category/index',
+
     // NOTE: setting the language
     // 'language' => 'ru-RU',
+
     'components' => [
         'request' => [
             /**
@@ -60,13 +73,14 @@ $config = [
         // NOTE: include Human-friendly URL
         'urlManager' => [
             'enablePrettyUrl' => true,
-			'showScriptName' => false,
-			'rules' => [
-                '' => 'site/index',
+            'showScriptName' => false,
+            'rules' => [
+                //'' => 'site/index',
+                //'' => 'category/index',
 
                 // NOTE: making links beautiful
                 'category/<id:\d+>' => 'category/view',
-			]
+            ]
         ],
     ],
     'params' => $params,
