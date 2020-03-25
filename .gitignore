@@ -32,7 +32,8 @@ phpunit.phar
 /config/test.php
 /config/test_db.php
 
-/controllers
+/controllers/SiteController.php
+
 /mail
 
 /models/ContactForm.php
