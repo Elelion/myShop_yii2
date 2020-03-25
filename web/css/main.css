@@ -899,11 +899,12 @@ h2.title {
 }
 
 
+/* NOTE: removing layout bugs */
 .productinfo p{
-  white-space: nowrap; /* Запрещаем перенос строк */
-  overflow: hidden; /* Обрезаем все, что не помещается в область */
-  padding: 5px; /* Поля вокруг текста */
-  text-overflow: ellipsis; /* точки */
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px;
+  text-overflow: ellipsis;
 
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
