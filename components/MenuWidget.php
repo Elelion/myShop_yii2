@@ -25,7 +25,6 @@ class MenuWidget extends Widget
 
     public function run()
     {
-        // NOTE: getting data from the cache
         $menu = Yii::$app->cache->get('menu');
         if ($menu) {
             return $menu;
@@ -38,7 +37,6 @@ class MenuWidget extends Widget
         $this->tree = $this->getTree();
         $this->menuHtml = $this->getMenuHtml($this->tree);
 
-        // NOTE: getting data from the cache
         Yii::$app->cache->set('menu', $this->menuHtml, 60);
         return $this->menuHtml;
     }
@@ -73,21 +71,3 @@ class MenuWidget extends Widget
         return ob_get_clean();
     }
 }
-
-
-/*
-NOTE: cache
-get - get the cache, and set-write the cache.
-
-set:
-• first parameter: key - the name of the cache that we will use to access it
-• second parameter - the data we want to record
-• third parameter: duration - life time in ms
-
-Creating a cached menu, because it rarely changes, and in order not to load
-the database with queries, we cache it
-
-cached data is stored here:
-runtime -> cache
-our files is here -> /me/...
-*/
