@@ -6,14 +6,8 @@ use app\models\Category;
 use app\models\Product;
 use Yii;
 
-// NOTE: inheriting from our shared controller
 class CategoryController extends AppController
 {
-    /*
-     * NOTE:
-     * default action for this controller
-     * Look in: config/web.php -> 'defaultRoute' => 'category/index',
-     * */
     public function actionIndex()
     {
         $hits = Product::find()
@@ -22,5 +16,16 @@ class CategoryController extends AppController
             ->all();
 
         return $this->render('index', compact('hits'));
+    }
+
+    // NOTE: http://localhost/yii2/basic_shop/web/category/4
+    public function actionView($id)
+    {
+        $id = Yii::$app->request->get('id');
+        $products = Product::find()
+            ->where(['category_id' => $id])
+            ->all();
+
+        return $this->render('view', compact('products'));
     }
 }
