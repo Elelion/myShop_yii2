@@ -1,11 +1,11 @@
 <?php
 
+/* @var $this yii\web\View */
+
 use app\components\MenuWidget;
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
 ?>
 
 <section id="advertisement">
@@ -57,7 +57,9 @@ $this->title = 'My Yii Application';
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Features Items</h2>
+
+                    <!-- NOTE: output the name of the product category -->
+                    <h2 class="title text-center"><?= $category->name; ?></h2>
 
                     <?php if (!empty($products)): ?>
                         <?php $i = 0; ?>
