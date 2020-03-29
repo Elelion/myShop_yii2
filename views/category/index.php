@@ -1,11 +1,10 @@
 <?php
 
+/* @var $this yii\web\View */
+
 use app\components\MenuWidget;
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
 ?>
 
 <section id="slider"><!--slider-->
