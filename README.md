@@ -17,7 +17,7 @@ Project content:
 `step-5:` ~~Widget " category Menu" Part 2~~ <br>
 `step-6:` ~~Output of popular products~~ <br>
 `step-7:` ~~Output of product categories~~ <br>
-`step-8:` Method for displaying meta tags <br>
+`step-8:` ~~Method for displaying meta tags~~ <br>
 `step-9:` Paginated navigation <br>
 `step-10:` Product card Part 1 <br>
 `step-11:` Product card Part 2 <br>
