@@ -78,6 +78,9 @@ $config = [
                 //'' => 'site/index',
                 //'' => 'category/index',
 
+                // NOTE: for the purity of pagination, the rule should be the first
+                'category/<id:\d+>/page/<page:\d+>' => 'category/view',
+
                 // NOTE: making links beautiful
                 'category/<id:\d+>' => 'category/view',
             ]
