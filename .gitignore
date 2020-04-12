@@ -69,4 +69,4 @@ requirements.php
 Vagrantfile
 yii
 yii.bat
-_.htaccess
+.htaccess
