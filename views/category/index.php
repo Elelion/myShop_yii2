@@ -4,6 +4,7 @@
 
 use app\components\MenuWidget;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 ?>
 
@@ -128,7 +129,9 @@ use yii\helpers\Html;
                                         <div class="productinfo text-center">
                                             <?= Html::img("@web/products/{$hit->img}", ['alt' => $hit->name]); ?>
                                             <h2>$ <?= $hit->price; ?></h2>
-                                            <p><?= $hit->name; ?></p>
+
+                                            <p><a href="<?= Url::to(['product/view', 'id' => $hit->id]) ?>"><?= $hit->name; ?></a></p>
+
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
 
