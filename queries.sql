@@ -28,7 +28,7 @@
 	("0", "Interiros", "", ""),
 	("0", "Clothing", "", ""),
 	("0", "Bags", "Сумки ключевики", "Сумки описание"),
-	("0", "Shoes", "", "")
+	("0", "Shoes", "", "");
 
 INSERT INTO product (
     category_id,
