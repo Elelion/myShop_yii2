@@ -7,13 +7,29 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+
+    // NOTE: setting the language
+    'language' => 'ru-RU',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
 
+    /*
+     * NOTE:
+     * look in: controllers -> CategoryController.php
+     * !!!rules in ... must be removed!!!
+     *
+     * if this doesn't work, see  urlManager -> rules
+     * '' => 'site/index',
+     * '' => 'category/index',
+     * */
+    //'defaultRoute' => 'main',
+    'defaultRoute' => 'category/index',
+
     // NOTE: setting the language
     // 'language' => 'ru-RU',
+
     'components' => [
         'request' => [
             /**
@@ -24,7 +40,7 @@ $config = [
             'cookieValidationKey' => 'sd*#Dsdj8sad9s8ad8S',
 
             // NOTE: include Human-friendly URL
-            'baseUrl' => $baseUrl,
+            // 'baseUrl' => $baseUrl,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -57,10 +73,18 @@ $config = [
         // NOTE: include Human-friendly URL
         'urlManager' => [
             'enablePrettyUrl' => true,
-			'showScriptName' => false,
-			'rules' => [
-                '' => 'site/index'
-			]
+            'showScriptName' => false,
+            'rules' => [
+                //'' => 'site/index',
+                //'' => 'category/index',
+
+                // NOTE: for the purity of pagination, the rule should be the first
+                'category/<id:\d+>/page/<page:\d+>' => 'category/view',
+
+                // NOTE: making links beautiful
+                'category/<id:\d+>' => 'category/view',
+                'product/<id:\d+>' => 'product/view',
+            ]
         ],
     ],
     'params' => $params,
