@@ -9,6 +9,7 @@ use yii\data\Pagination;
 
 class CategoryController extends AppController
 {
+    // NOTE: http://localhost/yii2/basic_shop/web/
     public function actionIndex()
     {
         $hits = Product::find()
