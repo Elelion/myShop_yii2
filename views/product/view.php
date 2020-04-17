@@ -318,13 +318,12 @@ use yii\helpers\Html;
                             <?php
                             /*
                              * NOTE:
-                             * если счетчик равен 3, тогда мы открываем блок и
-                             * проверяем, если он равен 0, то добавляем класс
-                             * active (текущий товар). И закрываем блок,
-                             * так же если счетчик равен 3
+                             * if the counter is 3, then we open the block and
+                             * check if it is equal to 0, then add the class
+                             * active (current product). And closing the block,
+                             * also if the counter is 3
                              * */
 
-                            // TODO: 9.20
                             ?>
                             <?php
                                 // NOTE: $count - if an odd number of products is output
