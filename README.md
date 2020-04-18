@@ -21,7 +21,7 @@ Project content:
 `step-9:` ~~Paginated navigation~~ <br>
 `step-10:` ~~Product card Part 1~~ <br>
 `step-11:` ~~Product card Part 2~~ <br>
-`step-12:` Error handling <br>
+`step-12:` ~~Error handling~~ <br>
 `step-13:` Search <br>
 `step-14:` Basket Part 1 <br>
 `step-15:` Basket Part 2 <br>
