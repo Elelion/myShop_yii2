@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Category;
 use app\models\Product;
 use Yii;
+use yii\web\HttpException;
 
 class ProductController extends AppController
 {
@@ -14,6 +15,14 @@ class ProductController extends AppController
 
         // NOTE: lazy loading
         $product = Product::findOne($id);
+
+        // NOTE: .../web/product/300
+        if (empty($product)) {
+            throw new HttpException(
+                404,
+                'There is no such product'
+            );
+        }
 
         // NOTE: greedy loading
         //$product = Product::find()
