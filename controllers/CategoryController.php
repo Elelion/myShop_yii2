@@ -6,6 +6,7 @@ use app\models\Category;
 use app\models\Product;
 use Yii;
 use yii\data\Pagination;
+use yii\web\HttpException;
 
 class CategoryController extends AppController
 {
@@ -17,7 +18,6 @@ class CategoryController extends AppController
             ->limit(6)
             ->all();
 
-        // NOTE: setting meta tags for our index
         $this->setMeta('E-SHOPPER__index');
         return $this->render('index', compact('hits'));
     }
@@ -26,25 +26,21 @@ class CategoryController extends AppController
     public function actionView($id)
     {
         $id = Yii::$app->request->get('id');
+        $category = Category::findOne($id);
+
+        // NOTE: .../web/category/300
+        if (empty($category)) {
+            throw new HttpException(
+                404,
+                'There is no such category'
+            );
+        }
 
         /**/
 
-        // NOTE: our query that returns all records
         $query = Product::find()
             ->where(['category_id' => $id]);
 
-        /*
-         * NOTE:
-         * calculates the total number of entries, for further pagination
-         *
-         * 'pageSize' => 3 - outputs 3 entries per page
-         * if this parameter is omitted, 20 is output by default
-         *
-         * 'forcePageParam' => false + 'pageSizeParam' => false - for clear url
-         * /web/category/4?per-page=3 -> .../4?per-page=3 - it is trash
-         *
-         * rules - look at web.php -> urlManager -> rules
-         * */
         $pages = new Pagination([
             'totalCount' => $query->count(),
             'pageSize' => 3,
@@ -52,19 +48,11 @@ class CategoryController extends AppController
             'pageSizeParam' => false
         ]);
 
-        /*
-         * NOTE:
-         * $query->offset($pages->offset) - we say which entry to start with
-         * ->limit($pages->limit) - number of entries per page
-         * ->all(); - select from all entries
-         * */
         $products = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
 
         /**/
-
-        $category = Category::findOne($id);
 
         $this->setMeta(
             'E-SHOP__view | ' . $category->name,
@@ -78,10 +66,37 @@ class CategoryController extends AppController
             'category'
         ));
     }
-}
 
-/*
-NOTE:
-an example of pagination is given here:
-https://www.yiiframework.com/doc/guide/2.0/ru/output-pagination
-*/
+    // NOTE: ../web/ -> search field -> enter
+    public function actionSearch()
+    {
+        $q = trim(Yii::$app->request->get('q'));
+
+        // NOTE: we place meta tags here for both the empty query and the found one
+        $this->setMeta('E-SHOP__view | Search: ' . $q);
+
+        if (!$q) {
+            return $this->render('search');
+        }
+
+        $query = Product::find()
+            ->where(['like', 'name', $q]);
+
+        $pages = new Pagination([
+            'totalCount' => $query->count(),
+            'pageSize' => 3,
+            'forcePageParam' => false,
+            'pageSizeParam' => false
+        ]);
+
+        $products = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        return $this->render('search', compact(
+            'products',
+            'pages',
+            'q'
+        ));
+    }
+}
