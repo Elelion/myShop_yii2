@@ -84,6 +84,9 @@ $config = [
                 // NOTE: making links beautiful
                 'category/<id:\d+>' => 'category/view',
                 'product/<id:\d+>' => 'product/view',
+
+                // NOTE: for searching
+                'search' => 'category/search',
             ]
         ],
     ],
