@@ -12,6 +12,26 @@
 	 speed: 300
  });
 
+/* step-14_basket-part1 - BEGIN */
+// $('.add-to-cart').on('click', function (e) {
+	// NOTE: canceling the default event
+// 	e.preventDefault();
+//
+// 	var id = $(this).data('id');
+// 	$.ajax({
+// 		url: '/cart/add',
+// 		data: {id: id},
+// 		type: 'GET',
+// 		success: function (res) {
+// 			console.log(res);
+// 		},
+// 		error: function () {
+// 			alert('Error');
+// 		}
+// 	})
+// });
+/* step-14_basket-part1 - END */
+
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 	};	
