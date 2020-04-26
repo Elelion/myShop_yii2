@@ -35,6 +35,7 @@ class CartController extends AppController
 {
     public function actionAdd($id)
     {
+        $this->layout = false;
         $product = Product::findOne($id);
 
         if (empty($product)) {
@@ -45,5 +46,7 @@ class CartController extends AppController
         $session->open();
         $cart = new Cart();
         $cart->addToCart($product);
+
+        return $this->render('cart-model', compact('session'));
     }
 }
