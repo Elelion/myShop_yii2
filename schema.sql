@@ -1,0 +1,25 @@
+﻿CREATE DATABASE basic_shop CHARACTER SET 'utf8';
+
+CREATE TABLE category (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	parent_id INT(16) NULL DEFAULT '0',
+	name VARCHAR(255),
+	keywords VARCHAR(255),
+	description VARCHAR(255)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE product (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	category_id INT(16),
+	name VARCHAR(255),
+	content TEXT(32768),
+	price FLOAT(24),
+	keywords VARCHAR(255),
+	description VARCHAR(255),
+	img VARCHAR(255),
+	hit ENUM('0', '1'),
+	new ENUM('0', '1'),
+	sale ENUM('0', '1')
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;

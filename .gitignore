@@ -12,9 +12,6 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
-# composer vendor dir
-/vendor
-
 # composer itself is not needed
 composer.phar
 
@@ -26,8 +23,50 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-tests/_output/*
-tests/_support/_generated
+#---
 
-#vagrant folder
-/.vagrant
+/commands
+
+/config/console.php
+/config/params.php
+/config/test.php
+/config/test_db.php
+
+/controllers/SiteController.php
+
+/mail
+
+/models/ContactForm.php
+/models/LoginForm.php
+/models/User.php
+
+/runtime
+/tests
+/vagrant
+/vendor
+
+/views/site/about.php
+/views/site/contact.php
+/views/site/error.php
+/views/site/login.php
+/views/layouts/_main.php
+
+/web/assets
+/web/.htaccess
+/web/favicon.ico
+/web/index-test.php
+/web/robots.txt
+
+/widgets
+
+.bowerrc
+codeception.yml
+composer.json
+composer.lock
+docker-compose.yml
+LICENSE.md
+requirements.php
+Vagrantfile
+yii
+yii.bat
+.htaccess
