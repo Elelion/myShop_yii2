@@ -12,30 +12,60 @@
 	 speed: 300
  });
 
-/* step-14_basket-part1 - BEGIN */
-// $('.add-to-cart').on('click', function (e) {
-	// NOTE: canceling the default event
-// 	e.preventDefault();
-//
-// 	var id = $(this).data('id');
-// 	$.ajax({
-// 		url: '/cart/add',
-// 		data: {id: id},
-// 		type: 'GET',
-// 		success: function (res) {
-// 			console.log(res);
-// 		},
-// 		error: function () {
-// 			alert('Error');
-// 		}
-// 	})
-// });
-/* step-14_basket-part1 - END */
+ // **
+
+	function showCart(cart) {
+		$('#cart .modal-body').html(cart);
+		$('#cart').modal();
+	}
+
+ function clearCart() {
+	 $.ajax({
+		 url: '/cart/clear',
+		 type: 'GET',
+
+		 success: function (res) {
+			 if (!res) alert ('Error');
+			 showCart(res);
+		 },
+		 error: function (res) {
+		 		alert('error');
+		 }
+	 })
+ }
+
+// **
+
+$('.add-to-cart').on('click', function (e) {
+	e.preventDefault();
+
+	var id = $(this).data('id');
+
+	$.ajax({
+		url: 'cart/add',
+		data: {id: id},
+		type: 'GET',
+		dataType: 'json',
+
+		success: function (res) {
+			if (!res) alert ('Error');
+			showCart(id);
+			console.log(res);
+		},
+		error: function (res) {
+			alert(res);
+			showCart(res);
+			console.log(res);
+		}
+	})
+});
+
+// **
 
 	var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};	
-		
+	};
+
 /*scroll to top*/
 
 $(document).ready(function(){
