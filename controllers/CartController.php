@@ -33,8 +33,10 @@ Array
 
 class CartController extends AppController
 {
-    public function actionAdd($id)
+    public function actionAdd()
     {
+        $id = Yii::$app->request->get('id');
+
         $this->layout = false;
         $product = Product::findOne($id);
 
@@ -46,6 +48,19 @@ class CartController extends AppController
         $session->open();
         $cart = new Cart();
         $cart->addToCart($product);
+
+        return $this->render('cart-model', compact('session'));
+    }
+
+    public function actionClear()
+    {
+        $this->layout = false;
+
+        $session = Yii::$app->session;
+        $session->open();
+        $session->remove('cart');
+        $session->remove('cart.qty');
+        $session->remove('cart.sum');
 
         return $this->render('cart-model', compact('session'));
     }
