@@ -21,6 +21,8 @@ class Cart extends ActiveRecord
             ];
         }
 
+        // DTO
+
         /*
          * NOTE:
          * if we already have one $_SESSION['cart.qty'] then we add a
