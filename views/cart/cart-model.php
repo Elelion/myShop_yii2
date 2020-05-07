@@ -1,4 +1,4 @@
-<?php if (empty($session['cart'])): ?>
+<?php if (!empty($session['cart'])): ?>
     <div class="table-responsive">
         <table class="table table-hover table-striped">
             <thead>
