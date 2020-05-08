@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Html;
+?>
+
 <?php if (!empty($session['cart'])): ?>
     <div class="table-responsive">
         <table class="table table-hover table-striped">
@@ -13,11 +17,17 @@
             <tbody>
                 <?php foreach ($session['cart'] as $id => $item): ?>
                     <tr>
+                        <?= Html::img(
+                            "@web/images/products/{$item['img']}",
+                            [
+                                'alt' => $item['name'],
+                                'height' => 50
+                            ])?>
                         <td><?= $item['img']; ?></td>
                         <td><?= $item['name']; ?></td>
                         <td><?= $item['qty']; ?></td>
                         <td><?= $item['price']; ?></td>
-                        <th><span class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></th>
+                        <th><span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></th>
                     </tr>
                 <?php endforeach; ?>
 
@@ -35,3 +45,5 @@
 <?php else: ?>
     <h3>Корзина пуста</h3>
 <?php endif; ?>
+
+<!-- TODO: 16.00 -->
