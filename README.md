@@ -26,7 +26,7 @@ Project content:
 `step-14:` ~~Basket Part 1~~ <br>
 `step-15:` ~~Basket Part 2~~ <br>
 `step-16:` ~~Basket Part 3~~ <br>
-`step-17:` Basket Part 4 <br>
+`step-17:` ~~Basket Part 4~~ <br>
 `step-18:` Basket Part 5 <br>
 `step-19:` Making an order Part 1 <br>
 `step-20:` Making an order Part 2 <br>
