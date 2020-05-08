@@ -1178,6 +1178,10 @@ h2.title {
 	overflow:hidden;
 }
 
+/* NOTE: for basket */
+.del-item {
+  cursor: pointer
+}
 
 #similar-product {
   margin-top: 40px;
@@ -1194,8 +1198,6 @@ h2.title {
   overflow: hidden;
   margin-top: 10px;
 }
-
-
 
 .view-product {
   position: relative;
