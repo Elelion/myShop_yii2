@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 <?php if (!empty($session['cart'])): ?>
     <div class="table-responsive">
-        <table class="table table-hover table-striped">
+        <table class="table table-hover table-striped" style="border-collapse:collapse; width: 100%;">
             <thead>
                 <tr>
                     <th>фото</th>
@@ -17,18 +17,21 @@ use yii\helpers\Html;
             <tbody>
                 <?php foreach ($session['cart'] as $id => $item): ?>
                     <tr>
+                        <td style="border: 1px solid black;">
                         <?= Html::img(
-                            "@web/images/products/{$item['img']}",
+                            "@web/images/product-details/{$item['img']}",
                             [
                                 'alt' => $item['name'],
                                 'height' => 50
                             ])?>
-                        <td><?= $item['img']; ?></td>
-                        <td><?= $item['name']; ?></td>
-                        <td><?= $item['qty']; ?></td>
-                        <td><?= $item['price']; ?></td>
-                        <th><span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></th>
+                        </td>
+                        <td style="border: 1px solid black;"><?= $item['name']; ?></td>
+                        <td style="border: 1px solid black;"><?= $item['qty']; ?></td>
+                        <td style="border: 1px solid black;"><?= $item['price']; ?></td>
+                        <span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span>
+                        <br>
                     </tr>
+
                 <?php endforeach; ?>
 
                 <tr>
@@ -45,5 +48,3 @@ use yii\helpers\Html;
 <?php else: ?>
     <h3>Корзина пуста</h3>
 <?php endif; ?>
-
-<!-- TODO: 16.00 -->

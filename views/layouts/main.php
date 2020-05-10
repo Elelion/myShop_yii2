@@ -340,7 +340,11 @@ ieAppAsset::register($this);
       'size'    => 'modal-lg',
       'footer'  => '
         <button type="button" data-dismiss="modal" class="btn btn-default">Продолжить покупки</button>
-        <button type="button" class="btn btn-primary">Оформить</button>
+        <a 
+           href="' . Url::to(['cart/view']) .'"
+           type="button" 
+           class="btn btn-primary">Оформить</a>
+           
         <button type="button" class="btn btn-danger" onclick="clearCart">Очистить</button>'
     ]);
 
