@@ -28,7 +28,12 @@ use yii\helpers\Html;
                         <td style="border: 1px solid black;"><?= $item['name']; ?></td>
                         <td style="border: 1px solid black;"><?= $item['qty']; ?></td>
                         <td style="border: 1px solid black;"><?= $item['price']; ?></td>
-                        <span data-id="<?= $id; ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span>
+                        <td style="border: 1px solid black;">
+                            <span
+                                data-id="<?= $id; ?>"
+                                class="glyphicon glyphicon-remove text-danger del-item"
+                                aria-hidden="true"></span>
+                        </td>
                         <br>
                     </tr>
 
