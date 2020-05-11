@@ -23,3 +23,28 @@ CREATE TABLE product (
 	sale ENUM('0', '1')
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE order_product (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	create_at DATETIME NOT NULL DEFAULT NOW(),
+	updated_at DATETIME NOT NULL DEFAULT NOW(),
+	qty INT(10),
+	sum float(16),
+	status TINYINT(1) NOT NULL DEFAULT 0,
+	name VARCHAR(64),
+	email VARCHAR(64),
+	phone INT(12),
+	address TEXT
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE order_item (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	order_id INT(10),
+	product_id INT(10),
+	name VARCHAR(64),
+	price float(16),
+	qty_item INT(10),
+	sum_item float(16)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
