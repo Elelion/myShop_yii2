@@ -6,6 +6,9 @@ use app\models\Product;
 use app\models\Cart;
 use Yii;
 
+use app\models\OrderProduct;
+use app\models\OrderItem;
+
 /*
 Array
 (
@@ -97,6 +100,15 @@ class CartController extends AppController
 
     public function actionView()
     {
-        return $this->render('view');
+        $session = Yii::$app->session;
+        $session->open();
+        $this->setMeta('Basket');
+        $order = new OrderProduct();
+
+        if ($order->load(Yii::$app->request->post())) {
+            debug(Yii::$app->request->post());
+        }
+
+        return $this->render('view', compact('session', 'order'));
     }
 }
