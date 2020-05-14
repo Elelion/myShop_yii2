@@ -29,7 +29,7 @@ Project content:
 `step-17:` ~~Basket Part 4~~ <br>
 `step-18:` ~~Basket Part 5~~ <br>
 `step-19:` ~~Making an order Part 1~~ <br>
-`step-20:` Making an order Part 2 <br>
+`step-20:` ~~Making an order Part 2~~ <br>
 `step-21:` Send mail <br>
 `step-22:` Authorization Part 1 <br>
 `step-23:` Authorization Part 2 <br>
