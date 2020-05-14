@@ -5,6 +5,26 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="container">
+    <?php if (Yii::$app->session->hasFlash('success')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+            <?= Yii::$app->session->getFlash('success'); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->session->hasFlash('error')): ?>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+
+          <?= Yii::$app->session->getFlash('error'); ?>
+      </div>
+    <?php endif; ?>
+
     <?php if (!empty($session['cart'])): ?>
         <div class="table-responsive">
             <table class="table table-hover table-striped" style="border-collapse:collapse; width: 100%;">
@@ -49,11 +69,11 @@ use yii\widgets\ActiveForm;
                 <?php endforeach; ?>
 
                 <tr>
-                    <td colspan="4">Итого</td>
+                    <td colspan="5">Итого</td>
                     <td><?= $session['cart.qty']; ?></td>
                 </tr>
                 <tr>
-                    <td colspan="4">На сумму</td>
+                    <td colspan="5">На сумму</td>
                     <td><?= $session['cart.sum']; ?></td>
                 </tr>
                 </tbody>
