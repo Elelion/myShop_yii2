@@ -52,12 +52,31 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+
+        /*
+         * NOTE:
+         * useFileTransport => true - means test mode
+         * runtime/mail - this is where our emails will be added
+         * https://www.yiiframework.com/extension/yiisoft/yii2-swiftmailer/doc/api/2.1/yii-swiftmailer-mailer
+         * mail/layouts - the types for writing
+         * */
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+
+            // NOTE: settings for gmail
+            // FIXME: enter your email address
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.mail.ru',
+                'username' => 'username',
+                'password' => 'password',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
