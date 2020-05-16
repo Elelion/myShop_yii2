@@ -34,7 +34,7 @@ phpunit.phar
 
 /controllers/SiteController.php
 
-/mail
+/mail/layouts/
 
 /models/ContactForm.php
 /models/LoginForm.php
