@@ -116,6 +116,37 @@ class CartController extends AppController
                     'success',
                     'Ваш заказ принят, менеджер скоро с вами свяжется');
 
+                /*
+                 * NOTE:
+                 * passing our shopping cart:
+                 * Yii::$app->mailer->compose('order', compact('session'))
+                 *
+                 * ->setFrom - which e-mail is used to get this mail.
+                 * There must be something that is in the mail settings
+                 * in the web.php!!!
+                 *
+                 * ->setFrom(['test@mail.ru' => 'yii2.loc'])
+                 * yii2.loc - this is what the user will see in the From field
+                 *
+                 * ->setTo - address where we send the email
+                 * ->setTo(Yii::$app->params['adminEmail']) - send mail for admin
+                 * look address in config/params.php
+                 *
+                 * ->setSubject - topic
+                 *
+                 * ->setTextBody('text') - send a text message
+                 *
+                 * ->setHtmlBody('<b>text</b>') - send in html format
+                 *
+                 * ->send() - send mail
+                 * */
+
+                Yii::$app->mailer->compose('order', compact('session'))
+                    ->setFrom(['test@mail.ru' => 'yii2.loc'])
+                    ->setTo($order->email)
+                    ->setSubject('Заказ')
+                    ->send();
+
                 // NOTE: clear basket
                 $session->remove('cart');
                 $session->remove('cart.qty');
@@ -155,5 +186,3 @@ class CartController extends AppController
         }
     }
 }
-
-//16:52
