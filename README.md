@@ -31,7 +31,7 @@ Project content:
 `step-19:` ~~Making an order Part 1~~ <br>
 `step-20:` ~~Making an order Part 2~~ <br>
 `step-21:` ~~Send mail~~ <br>
-`step-22:` Authorization Part 1 <br>
+`step-22:` ~~Authorization Part 1~~ <br>
 `step-23:` Authorization Part 2 <br>
 `step-24:` List of orders in the admin panel <br>
 `step-25:` Order management <br>
