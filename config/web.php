@@ -27,6 +27,14 @@ $config = [
     //'defaultRoute' => 'main',
     'defaultRoute' => 'category/index',
 
+    // NOTE: including new module (creating from gii)
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'admin',
+        ],
+    ],
+
     // NOTE: setting the language
     // 'language' => 'ru-RU',
 
